@@ -67,13 +67,13 @@ def main():
 
     # Set the private token.
     if(args.token):
-        headers = {"Private-Token": args.token }
+        headers = {"Private-Token": args.token}
     else:
         home_dir = os.path.expanduser("~")
         if(os.path.isfile(home_dir + "/.gitlab")):
             config = configparser.ConfigParser()
             config.read(home_dir + "/.gitlab")
-            headers = {"Private-Token": config.get("settings", "token") }
+            headers = {"Private-Token": config.get("settings", "token")}
         else:
             print("Error: Tokenを設定してください")
             sys.exit(1)
