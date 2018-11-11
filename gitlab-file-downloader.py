@@ -102,8 +102,8 @@ def main():
 
     if(r.status_code == 200):
         file_info = json.loads(r.text)
-        content = base64.b64decode(file_info["content"]).decode('utf-8')
-        with open(save_path, "w") as f:
+        content = base64.b64decode(file_info["content"])
+        with open(save_path, "wb") as f:
             f.write(content)
     else:
         status_code_err(r)
